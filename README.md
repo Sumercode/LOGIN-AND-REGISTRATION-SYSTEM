@@ -13,6 +13,10 @@ In system the main folder name is lar which contains all these files
 
 
 PROJECT MADE BY 
-SUMER SINGH RAWAT
-RITIK
-NUMAN IMTIYAZ
+
+SUMER SINGH RAWAT (20BCS9372)
+
+RITIK (20BCS9508)
+
+NUMAN IMTIYAZ (20BCS9374)
+
