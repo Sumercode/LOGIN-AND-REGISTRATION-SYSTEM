@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="{% static "images/favicon.ico" %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+        input.large {
+            width: 13px;
+            height: 13px;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(48, 46, 46);
+            color: white;
+            padding-top: 25vh;
+
+        }
+
+        .forgot {
+            color: white;
+            text-decoration: none;
+    
+        }
+
+        .forgot:hover {
+            color: tomato;
+            text-decoration: underline;
+        }
+
+        .additional {
+            text-align: left;
+        }
+
+        .add2 {
+            text-align: center;
+        }
+
+        .container {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            align-items: center;
+            background-color: rgb(22, 21, 21);
+            border-radius: 15px;
+            padding: 25px 10px;
+            box-shadow: 0 0 15px rgb(80, 79, 79);
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+
+        }
+
+        input {
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin: 5px;
+            text-align: left;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: rgb(48, 46, 46);
+
+        }
+
+        .btns {
+            margin: 15px auto;
+        }
+
+        button {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            padding: 8px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            margin: 5px 25px;
+        }
+
+        button:hover {
+            background-color: tomato;
+        }
+
+        .alert{
+            text-align:center;
+        }
+
+        
+    </style>
+</head>
+
+<body style="background-image: url('{% static "images/login.jpg" %}')";>
+
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+        </div>
+    {% endfor %}
+
+    
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/signin" method="post">
+        {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="password" name="passwd" id="passwd" placeholder="Password">
+            <div class="additional">
+                <input type="checkbox" checked="checked" name="remember" class="large">Remember me
+            </div>
+
+        <div class="btns">
+            <button type="submit">Login</button>
+            <a href="/signup"><button type="button" id="sign-up">Register</button></a>
+        </div>
+
+        <div class="add2">
+            <a href="{% url 'reset_password' %}" , class="forgot">Forgot password?</a>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>
